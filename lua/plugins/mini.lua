@@ -1,0 +1,42 @@
+return {
+	{ "nvim-mini/mini.ai", version = "*", opts = {} },
+	{
+		"nvim-mini/mini.comment",
+		version = "*",
+		opts = {
+			mappings = {
+				-- Toggle comment (like `gcip` - comment inner paragraph) for both
+				-- Normal and Visual modes
+				comment = "<C-k>",
+
+				-- Toggle comment on current line
+				comment_line = "<C-k><C-k>",
+
+				-- Toggle comment on visual selection
+				comment_visual = "<leader>k",
+
+				-- Define 'comment' textobject (like `dgc` - delete whole comment block)
+				-- Works also in Visual mode if mapping differs from `comment_visual`
+				textobject = "<leader>k",
+			},
+		},
+	},
+	--[[
+    { 'nvim-mini/mini.move', version = '*', opts = {
+	  mappings = {
+	  -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+	    left = '<C-h>',
+	    right = '<C-l>',
+	    down = '<C-j>',
+	    up = '<C-k>',
+
+	    -- Move current line in Normal mode
+	    line_left = '<C-h>',
+	    line_right = '<C-l>',
+	    line_down = '<C-j>',
+	    line_up = '<C-k>',
+	},
+    }},
+	--]]
+	{ "nvim-mini/mini.surround", version = "*", opts = {} },
+}
