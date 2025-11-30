@@ -22,6 +22,32 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Git keybinds
+local function git_root()
+	local buf = vim.api.nvim_buf_get_name(0)
+	local dir = vim.fs.dirname(buf)
+	return vim.fs.root(dir, ".git")
+end
+
+vim.keymap.set("n", "<leader>va", function()
+	local files = vim.fn.input("Select files: ")
+	if files == "" then
+		print("Adding .")
+		vim.system({ "git", "add", "." }, { cwd = git_root() })
+	else
+		print("adding" .. files)
+		vim.system({ "git", "add", files }, { cwd = git_root() })
+	end
+end, { desc = "Git add" })
+
+vim.keymap.set("n", "<leader>vc", function()
+	local msg = vim.fn.input("Commit message: ")
+	if msg == "" then
+		print("No valid commit message")
+	else
+		vim.system({ "git", "commit", "-m", msg }, { cwd = git_root() })
+	end
+end)
 -- Language specific keybinds
 
 -- CPP
