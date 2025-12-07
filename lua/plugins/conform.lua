@@ -7,6 +7,7 @@ return {
 			python = { "isort", "black" },
 			-- You can customize some of the format options for the filetype (:help conform.format)
 			cpp = { "clang-format" },
+			c = { "clang-format" },
 			cmake = { "gersemi" },
 			["_"] = { "trim_whitespace" },
 		},

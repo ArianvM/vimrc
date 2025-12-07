@@ -11,8 +11,8 @@ vim.keymap.set("n", "<S-Tab>", ":bp<CR>", { desc = "Previous buffer" })
 vim.keymap.set("n", "<C-c>", ":nohlsearch<CR>")
 
 -- Move lines
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv")
+-- vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "<M-k>", ":m '>-2<CR>gv=gv")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
