@@ -46,10 +46,8 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 -- reduce time for cursorHold
 vim.opt.updatetime = 1000
 -- Configure Code Folding
---[[
-	vim.opt.foldcolumn = "auto"
-	vim.opt.foldlevel = 6
-	vim.opt.foldmethod = "expr"
-	vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-]]
+-- vim.opt.foldcolumn = "auto"
+-- vim.opt.foldlevel = 6
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 --

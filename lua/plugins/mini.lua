@@ -41,4 +41,12 @@ return {
 		},
 	},
 	{ "nvim-mini/mini.surround", version = "*", opts = {} },
+	{ "nvim-mini/mini.icons" },
+	{ "nvim-mini/mini.pairs", opts = {
+		mappings = {
+			["("] = false,
+			['"'] = false,
+			["'"] = false,
+		},
+	} },
 }
