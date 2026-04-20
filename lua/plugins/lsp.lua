@@ -108,8 +108,9 @@ return {
 				map("<leader>e", vim.diagnostic.open_float, "float diagnostic")
 				map("K", vim.lsp.buf.hover, "Hover information")
 				map("<leader>h", vim.lsp.buf.signature_help, "Signature Help")
-				-- map("<leader>ca", vim.lsp.buf.code_action, "Code actions")
+				map("<leader>ca", vim.lsp.buf.code_action, "Code actions")
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>lr", ":lsp restart<CR>", "Restart LSP")
 
 				vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
 					callback = function()

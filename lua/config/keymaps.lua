@@ -7,8 +7,11 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to right window"
 -- Resize windows with arrows
 vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-down>", ":resize +2<cr>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-right>", ":vertical resize -2<cr>", {desc = "Increase window width"})
-vim.keymap.set("n", "<C-left>", ":vertical resize +2<cr>", {desc = "Decrease window width"})
+vim.keymap.set("n", "<C-right>", ":vertical resize -2<cr>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-left>", ":vertical resize +2<cr>", { desc = "Decrease window width" })
+
+vim.keymap.set("n", "<C-w>|", ":vsplit<CR>", { desc = "Split window vertically" })
+vim.keymap.set("n", "<C-w>-", ":split<CR>", { desc = "Split window vertically" })
 
 vim.keymap.set("n", "<Tab>", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bp<CR>", { desc = "Previous buffer" })
@@ -52,10 +55,18 @@ vim.keymap.set("n", "<leader>vc", function()
 end)
 -- Language specific keybinds
 
--- CPP
+-- Cpp
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "cpp",
 	callback = function()
 		vim.keymap.set("n", "<leader>cb<CR>", ":!cmake --build build", { desc = "Build" })
+	end,
+})
+
+-- Python
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "python",
+	callback = function()
+		vim.keymap.set("n", "<leader>rp", ":! python3 %<CR>", { desc = "Build" })
 	end,
 })

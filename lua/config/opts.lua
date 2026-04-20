@@ -7,6 +7,9 @@ vim.g.maplocalleader = " "
 vim.g.netrwPlugin = 1
 vim.g.loaded_netrw = 1
 
+-- Disable mouse click
+-- vim.opt.mouse = ""
+
 -- Tabstop
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -19,6 +22,7 @@ vim.opt.relativenumber = true
 
 -- Mode already visible in statusbar
 vim.opt.showmode = false
+vim.opt.laststatus = 3
 
 -- Configure splits
 vim.opt.splitright = true
