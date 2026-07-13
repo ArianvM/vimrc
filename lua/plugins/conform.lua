@@ -4,12 +4,13 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
-			python = { "black" },
+			python = { "black", "autoflake", "usort" },
 			-- You can customize some of the format options for the filetype (:help conform.format)
 			cpp = { "clang-format" },
 			c = { "clang-format" },
 			java = { "clang-format" },
 			cmake = { "cmakelang", "gersemi" },
+			json = { "clang-format" },
 			["_"] = { "trim_whitespace" },
 		},
 	},

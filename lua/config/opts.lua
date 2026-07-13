@@ -48,10 +48,13 @@ vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 -- vim.opt.inccommand = "split"
 
 -- reduce time for cursorHold
-vim.opt.updatetime = 1000
+vim.opt.updatetime = 500
 -- Configure Code Folding
--- vim.opt.foldcolumn = "auto"
--- vim.opt.foldlevel = 6
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldcolumn = "auto"
+vim.opt.foldlevel = 6
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 --
+--
+vim.o.timeout = true
+vim.o.timeoutlen = 300

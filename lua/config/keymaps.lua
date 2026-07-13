@@ -17,7 +17,7 @@ vim.keymap.set("n", "<Tab>", ":bn<CR>", { desc = "Next buffer" })
 vim.keymap.set("n", "<S-Tab>", ":bp<CR>", { desc = "Previous buffer" })
 
 -- Clear Highlight search
-vim.keymap.set("n", "<C-c>", ":nohlsearch<CR>")
+vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking text",
@@ -26,6 +26,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+-- Code Jumping
+vim.keymap.set("n", "<C-o>", "<C-o>zz", { desc = "Jump back and center" })
+-- Remaps
+vim.keymap.set("n", "<C-s>", "<C-a>")
 
 -- Git keybinds
 local function git_root()

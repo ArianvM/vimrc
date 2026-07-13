@@ -1,26 +1,30 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
 	lazy = false,
 	build = ":TSUpdate",
-	opts = {
-		ensure_installed = {
-			"lua",
-			"vim",
-			"vimdoc",
+	config = function()
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "<filetype>" },
+			callback = function()
+				-- Highlighting
+				vim.treesitter.start()
+				-- Folds
+				vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+				vim.wo[0][0].foldmethod = "expr"
+			end,
+		})
+		require("nvim-treesitter").install({
+			"python",
 			"c",
 			"cpp",
 			"git_config",
 			"git_rebase",
-			"gitattributes",
 			"gitcommit",
 			"gitignore",
-			"python",
-			"cmake",
-		},
-		highlight = {
-			enable = true,
-			disable = {},
-		},
-	},
+			"julia",
+			"make",
+			"markdown",
+			"bash",
+		})
+	end,
 }

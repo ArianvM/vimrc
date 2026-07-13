@@ -1,5 +1,6 @@
 return {
 	"saghen/blink.cmp",
+	branch = "v1",
 	event = "VimEnter",
 	dependencies = {
 		"rafamadriz/friendly-snippets",

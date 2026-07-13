@@ -15,8 +15,8 @@ return {
 					"stylua",
 					-- Python
 					"pyright",
+					-- "pylint",
 					"pyrefly",
-					"isort",
 					"black",
 					-- C++
 					"clangd",
@@ -84,6 +84,49 @@ return {
 			settings = {},
 		})
 		vim.lsp.enable("julials")
+
+		vim.lsp.config("buf_ls", {
+			root_markers = { "buf.yaml" },
+		})
+
+		vim.lsp.config("pyrefly", {
+			on_attach = function(client, _bufnr)
+				local caps = client.server_capabilities
+				caps.renameProvider = false
+			end,
+		})
+
+		vim.lsp.config("pyright", {
+			settings = {
+				python = {
+					analysis = {
+						ignore = { "*" },
+						typeCheckingMode = "off",
+					},
+				},
+			},
+			on_attach = function(client, _bufnr)
+				-- Strip every capability except rename
+				local caps = client.server_capabilities
+				caps.hoverProvider = false
+				caps.completionProvider = nil
+				caps.signatureHelpProvider = nil
+				caps.definitionProvider = false
+				caps.declarationProvider = false
+				caps.typeDefinitionProvider = false
+				caps.implementationProvider = false
+				caps.referencesProvider = false
+				caps.documentHighlightProvider = false
+				caps.documentSymbolProvider = false
+				caps.workspaceSymbolProvider = false
+				caps.codeActionProvider = true
+				caps.codeLensProvider = nil
+				caps.documentFormattingProvider = false
+				caps.documentRangeFormattingProvider = false
+				caps.inlayHintProvider = false
+				caps.diagnosticProvider = nil
+			end,
+		})
 	end,
 	init = function()
 		local builtin = require("telescope.builtin")
@@ -92,7 +135,7 @@ return {
 			desc = "LSP actions",
 			group = vim.api.nvim_create_augroup("UserLspAttach", { clear = true }),
 			callback = function(event)
-				vim.cmd("TSEnable highlight")
+				-- vim.cmd("TSEnable highlight")
 
 				local map = function(keys, func, desc)
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
