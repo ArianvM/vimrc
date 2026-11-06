@@ -4,7 +4,6 @@ return {
 	opts = function()
 		local opts = {
 			options = {
-				theme = "auto",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
 			},
@@ -14,9 +13,9 @@ return {
 			-- +-------------------------------------------------+
 			sections = {
 				lualine_a = { "branch", "diff" },
-				lualine_b = { { "diagnostics", sources = { "nvim_workspace_diagnostic" } } },
+				lualine_b = { "filename" },
 				lualine_c = {},
-				lualine_x = { "filename" },
+				lualine_x = { { "diagnostics", sources = { "nvim_workspace_diagnostic" } } },
 				lualine_y = { "mode" },
 				lualine_z = { "lsp_status" },
 			},
@@ -33,6 +32,13 @@ return {
 			-- Set it to the lualine section you want to use
 			hl_group = "lualine_c_normal",
 		})
+
+		local get_symbols = symbols.get
+		symbols.get = function()
+			local s = get_symbols()
+			return (s:gsub("%%%*", "%%#lualine_c_normal#"))
+		end
+
 		table.insert(opts.sections.lualine_c, {
 			symbols.get,
 			cond = symbols.has,

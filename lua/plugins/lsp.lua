@@ -21,7 +21,7 @@ return {
 					-- C++
 					"clangd",
 					"clang-format",
-					"cmake",
+					-- "cmake",
 					"codelldb",
 				},
 			},

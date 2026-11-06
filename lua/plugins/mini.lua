@@ -31,7 +31,7 @@ return {
 				right = "<M-l>",
 				down = "<M-j>",
 				up = "<M-k>",
-
+				--
 				-- Move current line in Normal mode
 				line_left = "<M-h>",
 				line_right = "<M-l>",

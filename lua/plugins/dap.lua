@@ -102,10 +102,10 @@ return {
 		-- Debugger navigation
 		-- vim.keymap.set("n", "<leader>bf", dap.focus_frame, { desc = "Focus frame" })
 		vim.keymap.set("n", "<leader>rb", dap.continue, { desc = "Continue" })
-		vim.keymap.set("n", "<Down>", dap.step_over, { desc = "Step over" })
-		vim.keymap.set("n", "<Right>", dap.step_into, { desc = "Step into" })
-		vim.keymap.set("n", "<Up>", dap.step_out, { desc = "Step out" })
-		vim.keymap.set("n", "<Left>", dap.step_back, { desc = "Step back" })
+		-- vim.keymap.set("n", "<Down>", dap.step_over, { desc = "Step over" })
+		-- vim.keymap.set("n", "<Right>", dap.step_into, { desc = "Step into" })
+		-- vim.keymap.set("n", "<Up>", dap.step_out, { desc = "Step out" })
+		-- vim.keymap.set("n", "<Left>", dap.step_back, { desc = "Step back" })
 
 		-- vim.keymap.set("n", "<leader>br", dap.restart, { desc = "Restart" })
 		vim.keymap.set("n", "<leader>xb", dap.terminate, { desc = "Terminate" })

@@ -4,16 +4,24 @@ return {
 		formatters_by_ft = {
 			lua = { "stylua" },
 			-- Conform will run multiple formatters sequentially
-			python = { "black", "autoflake", "usort" },
+			python = { "black", "autoflake" },
 			-- You can customize some of the format options for the filetype (:help conform.format)
-			cpp = { "clang-format" },
-			c = { "clang-format" },
-			java = { "clang-format" },
+			cpp = { "clang_format" },
+			c = { "clang_format" },
+			java = { "clang_format" },
 			cmake = { "cmakelang", "gersemi" },
-			json = { "clang-format" },
+			json = { "clang_format" },
 			["_"] = { "trim_whitespace" },
 		},
+		formatters = {
+			clang_format = {
+				prepend_args = {
+					"-style={BasedOnStyle: LLVM, IndentWidth: 4, UseTab: Never}",
+				},
+			},
+		},
 	},
+
 	init = function()
 		vim.api.nvim_create_autocmd("BufWritePre", {
 			pattern = "*",
